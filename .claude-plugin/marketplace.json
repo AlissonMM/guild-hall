@@ -1,0 +1,13 @@
+{
+  "name": "alissonmm-toolkit",
+  "owner": {
+    "name": "AlissonMM"
+  },
+  "plugins": [
+    {
+      "name": "claude-agents-toolkit",
+      "source": "./",
+      "description": "Agentes e skills universais: pesquisa de fluxos, implementação, revisão de código e geração de vídeo."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "claude-agents-toolkit",
+  "description": "Agentes e skills universais: pesquisa de fluxos, implementação, revisão de código e geração de vídeo.",
+  "version": "0.1.0",
+  "author": {
+    "name": "AlissonMM"
+  }
+}
