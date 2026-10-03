@@ -41,7 +41,6 @@ Se o usuário escolher uma fonte que não está conectada, responda com uma nova
 3. Para cada referência, registre: app, plataforma, nome do fluxo, passos (tela a tela), link ou ID na fonte, link da imagem (se houver) e os padrões de UX observados.
 4. Feche com uma **síntese**: padrões que se repetem entre as referências (o que o mercado mais usa), variações relevantes e como isso se aplica ao pedido e ao estilo definido. Descreva o que as referências mostram; não invente dados que a fonte não trouxe.
 5. **Salve a pesquisa em arquivo**: `docs/pesquisa-fluxos/<tema-em-kebab-case>.md` dentro do projeto atual (ou o local indicado no briefing). Esse é o único arquivo do projeto que você pode criar; não altere nenhum outro.
-6. Inclua no arquivo a nota: "Referências de apps de terceiros para uso interno de pesquisa. Não reproduzir interfaces de forma idêntica nem publicar as imagens."
 
 ## Etapa 3: rodada de perguntas 2 (Figma)
 Pergunte se o usuário quer salvar as referências no Figma:
