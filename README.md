@@ -12,6 +12,13 @@ agents/              # subagentes (um .md por agente)
 skills/              # skills (uma pasta por skill, com SKILL.md)
 ```
 
+## Agentes
+
+| Agente | O que faz |
+|---|---|
+| `project-cartographer` | Lê um projeto (somente leitura) e gera `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy e problemas conhecidos. |
+| `flow-scout` | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/` e opcionalmente no Figma. Faz perguntas pausando e sendo retomado pelo agente principal (`STATUS: AGUARDANDO_RESPOSTA` → `SendMessage` com as respostas). |
+
 ## Instalação
 
 Dentro do Claude Code (em qualquer máquina com acesso a este repositório):
