@@ -13,7 +13,7 @@ Versão visual desta página: abra [`index.html`](index.html) no navegador (ou a
 /plugin install guild-hall@alissonmm-toolkit
 ```
 
-Rode dentro do `claude` no terminal, ou use **+ › Plugins** no app desktop. O repositório é privado: a máquina precisa estar logada no GitHub. Depois, abra uma conversa nova e comece por `/guildmaster`.
+Rode dentro do `claude` no terminal, ou use **+ › Plugins** no app desktop. Depois, abra uma conversa nova e comece por `/guildmaster`.
 
 Para atualizar depois de uma mudança no repositório: `claude plugin update guild-hall@alissonmm-toolkit` (ou **Update now** no painel de plugins) e abra uma conversa nova.
 
