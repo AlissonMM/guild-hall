@@ -1,9 +1,9 @@
 ---
-name: backend-guidelines
+name: blacksmith
 description: Regras para escrever código de back-end com segurança, legibilidade, bom desempenho e testes, seguindo as decisões registradas em docs/adr/. Use sempre que for criar ou alterar código de back-end (endpoints, serviços, entidades, consultas, autenticação, migrações, configuração de servidor), em qualquer linguagem ou framework.
 ---
 
-# backend-guidelines
+# blacksmith
 
 Siga estas regras sempre que escrever ou alterar código de back-end.
 
@@ -16,7 +16,7 @@ Siga estas regras sempre que escrever ou alterar código de back-end.
 ## 2. Quando perguntar ao usuário
 - **Pergunte** (com `AskUserQuestion`, opção recomendada primeiro) sobre decisões **caras de desfazer** que ainda não estão nos ADRs: novo banco ou serviço externo, mudança no modelo de autenticação, mudança de contrato da API usada por outros sistemas, nova dependência relevante, mudança na estrutura de módulos, regra de negócio ambígua.
 - **Decida sozinho** os detalhes pequenos (nomes internos, organização de um método, mensagens de log), seguindo os ADRs e o padrão do projeto.
-- Quando uma decisão nova for tomada com o usuário, registre um novo ADR em `docs/adr/` (modelo na skill `backend-kickoff`).
+- Quando uma decisão nova for tomada com o usuário, registre um novo ADR em `docs/adr/` (modelo na skill `tactician`).
 
 ## 3. Segurança (obrigatório)
 - **Valide toda entrada** na fronteira (tamanho, formato, faixa, campos obrigatórios). Rejeite o que não for esperado.
@@ -65,4 +65,4 @@ Uma funcionalidade só está pronta quando:
 3. as migrações necessárias foram criadas;
 4. você **reportou o resultado real** do build e dos testes (sem dizer que passou se não rodou).
 
-Ao terminar uma funcionalidade, recomende ao usuário rodar o agente **`backend-reviewer`** para uma revisão de segurança e desempenho.
+Ao terminar uma funcionalidade, recomende ao usuário rodar o agente **`inquisitor`** para uma revisão de segurança e desempenho.

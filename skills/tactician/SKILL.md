@@ -1,9 +1,9 @@
 ---
-name: backend-kickoff
-description: Entrevista de início de um back-end. Define com o usuário a stack, a arquitetura, o banco de dados, a autenticação e os padrões de API, sempre recomendando uma opção, e registra cada decisão como ADR em docs/adr/. Use quando o usuário for começar um back-end novo, quiser definir ou revisar a stack ou a arquitetura, ou pedir "/backend-kickoff". Em projeto existente, detecta o que já foi decidido em vez de perguntar.
+name: tactician
+description: Entrevista de início de um back-end. Define com o usuário a stack, a arquitetura, o banco de dados, a autenticação e os padrões de API, sempre recomendando uma opção, e registra cada decisão como ADR em docs/adr/. Use quando o usuário for começar um back-end novo, quiser definir ou revisar a stack ou a arquitetura, ou pedir "/tactician". Em projeto existente, detecta o que já foi decidido em vez de perguntar.
 ---
 
-# backend-kickoff
+# tactician
 
 Você conduz a definição técnica de um back-end **junto com o usuário**, no chat principal. O objetivo é sair com decisões claras e registradas em ADRs, não com código.
 
@@ -14,7 +14,7 @@ Você conduz a definição técnica de um back-end **junto com o usuário**, no 
 - **Versões atuais**: antes de recomendar versões ou APIs de frameworks, consulte a documentação atual (Context7, se disponível, ou a documentação oficial). Não recomende versões de memória.
 
 ## Etapa 0: reconhecimento (sem perguntar nada)
-1. Leia, se existirem: `docs/adr/` (decisões anteriores), `docs/PROJETO.md` (gerado pelo agente project-cartographer), `CLAUDE.md`, `README`, `docs/pesquisa-fluxos/` (pesquisas do flow-scout).
+1. Leia, se existirem: `docs/adr/` (decisões anteriores), `docs/PROJETO.md` (gerado pelo agente loremaster), `CLAUDE.md`, `README`, `docs/pesquisa-fluxos/` (pesquisas do ranger).
 2. Verifique se já existe código de back-end: `pom.xml`, `build.gradle`, `package.json`, `go.mod`, `requirements.txt`/`pyproject.toml`, `*.csproj`, Dockerfile, docker-compose.
 3. **Projeto existente**: trate a stack e a arquitetura atuais como decisões já tomadas. Proponha registrá-las como ADRs ("decisão existente") e só pergunte sobre o que estiver indefinido. Nunca sugira reescrever o projeto em outra stack, a menos que o usuário peça.
 4. Se `docs/adr/` já tiver decisões, não pergunte de novo sobre elas; pergunte apenas se o usuário quer revisar alguma.
@@ -76,5 +76,5 @@ Para **mudar** uma decisão antiga, não edite o ADR original: crie um novo ADR 
 
 ## Etapa 6: encerramento
 1. Mostre um resumo curto das decisões, com os links dos ADRs.
-2. Pergunte se o usuário quer que você gere o **esqueleto do projeto** agora. Se sim, gere seguindo a skill `backend-guidelines`.
-3. Lembre que, durante o desenvolvimento, a skill `backend-guidelines` segue essas decisões, e que o agente `backend-reviewer` deve revisar cada funcionalidade pronta.
+2. Pergunte se o usuário quer que você gere o **esqueleto do projeto** agora. Se sim, gere seguindo a skill `blacksmith`.
+3. Lembre que, durante o desenvolvimento, a skill `blacksmith` segue essas decisões, e que o agente `inquisitor` deve revisar cada funcionalidade pronta.
