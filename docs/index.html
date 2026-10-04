@@ -167,7 +167,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
       <article class="card" data-kind="Agente" style="--t:var(--azure)">
         <div class="shield" aria-hidden="true">L</div>
         <div><h3>Loremaster</h3><div class="meta"><span class="kind">Agente</span><span class="role">conhece o mundo</span></div></div>
-        <p class="does">Lê o projeto inteiro sem opinar e escreve o documento de referência: guia rápido, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos.</p>
+        <p class="does">Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou.</p>
         <dl><dt>Chamar</dt><dd>“use o loremaster para documentar este projeto”</dd><dt>Escreve</dt><dd><code>docs/PROJETO.md</code></dd></dl>
         <p class="tincture">Esmalte: <b>Azure</b> (azul)</p>
       </article>
@@ -244,9 +244,9 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
         <li style="--t:var(--purpure)"><span class="who">Tactician · Modo B</span><span class="what">Cria o design system a partir dos fluxos pesquisados e publica a página de referência.</span></li>
         <li style="--t:var(--sable)"><span class="who">Blacksmith e Enchanter</span><span class="what">Você e o chat principal constroem o back-end e as telas seguindo os ADRs e o design system.</span></li>
         <li style="--t:var(--tenne)"><span class="who">Summoner</span><span class="what">Sobe o projeto na sua máquina e gera a skill de startup para as próximas vezes.</span></li>
-        <li style="--t:var(--celeste)"><span class="who">Seer e Inquisitor</span><span class="what">A cada funcionalidade: verificação no navegador e revisão do código.</span></li>
+        <li style="--t:var(--celeste)"><span class="who">Seer, Inquisitor e Loremaster</span><span class="what">A cada funcionalidade: verificação no navegador, revisão do código e atualização da documentação.</span></li>
         <li style="--t:var(--tenne)"><span class="who">Summoner · deploy</span><span class="what">Quando for publicar: escolhe o destino, prepara HTTPS, segredos e backups, e faz o deploy com a sua confirmação.</span></li>
-        <li style="--t:var(--azure)"><span class="who">Loremaster</span><span class="what">Quando o projeto tiver corpo, documenta tudo em <code>docs/PROJETO.md</code> e mantém o documento atualizado.</span></li>
+        <li style="--t:var(--azure)"><span class="who">Loremaster</span><span class="what">Antes de publicar, revisa o documento inteiro e aponta as divergências entre plano e código. Ele também pode ser chamado logo no início, para documentar o plano.</span></li>
       </ol>
       <div class="side">
         <div class="box">
@@ -303,7 +303,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
     </div>
     <div class="rules">
       <div class="rule" style="--t:var(--vert)"><h3>O ranger pausa</h3><p>Quando ele responder <code>STATUS: AGUARDANDO_RESPOSTA</code>, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.</p></div>
-      <div class="rule" style="--t:var(--azure)"><h3>O loremaster é imparcial</h3><p>O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema.</p></div>
+      <div class="rule" style="--t:var(--azure)"><h3>O loremaster é imparcial</h3><p>O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.</p></div>
       <div class="rule" style="--t:var(--celeste)"><h3>O seer precisa do app de pé</h3><p>Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.</p></div>
       <div class="rule" style="--t:var(--gules)"><h3>O inquisitor tem escopo</h3><p>Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.</p></div>
     </div>

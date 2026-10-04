@@ -14,7 +14,7 @@ Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **
 | Peça | Tipo | Para que serve | Como chamar |
 |---|---|---|---|
 | `guildmaster` | Skill | Este guia. | `/guildmaster` |
-| `loremaster` | Agente | Lê o projeto (somente leitura) e gera `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy, problemas conhecidos. Atualiza de forma incremental pelo commit. | "use o loremaster para documentar este projeto" |
+| `loremaster` | Agente | Lê o projeto (somente leitura) e mantém `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy, problemas conhecidos. Funciona em qualquer fase: separa o que está Planejado, Em construção e Implementado, inclui mudanças não commitadas e, a cada chamada, atualiza só o que mudou e relata o que o documento ainda não reflete. | "use o loremaster para documentar este projeto" |
 | `ranger` | Agente | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/<tema>.md` e opcionalmente no Figma. | "use o ranger para pesquisar o fluxo de <x>" |
 | `tactician` | Skill | **Modo A**: planejamento técnico de back-end e front-end (stack, arquitetura, banco, autenticação, API, estilização, estado, testes), com ADRs em `docs/adr/`. **Modo B**: design system em `docs/design-system.md` e página de referência publicada como Artifact no estilo do produto. | `/tactician` (diga se é planejamento ou design system) |
 | `blacksmith` | Skill | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. | Carrega sozinha ao codar back-end, ou `/blacksmith` |
@@ -27,7 +27,7 @@ Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **
 
 | Arquivo | Quem escreve | Quem lê |
 |---|---|---|
-| `docs/PROJETO.md` | loremaster | todos os outros |
+| `docs/PROJETO.md` | loremaster (a qualquer momento do projeto) | todos os outros |
 | `docs/pesquisa-fluxos/<tema>.md` | ranger | tactician (design system), enchanter, seer, blacksmith (endpoints que as telas precisam) |
 | `docs/adr/*.md` | tactician (e blacksmith/enchanter, ao registrar novas decisões) | blacksmith, enchanter, seer, inquisitor, loremaster |
 | `docs/design-system.md` (+ página Artifact) | tactician (Modo B) | enchanter, seer, inquisitor |
@@ -39,13 +39,14 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 
 ### Projeto novo
 1. `/tactician` (Modo A): define stack e arquitetura de back-end e front-end e cria `docs/adr/`.
+   Opcional: **loremaster** logo depois, para começar `docs/PROJETO.md` a partir do plano.
 2. **ranger**: pesquisa os fluxos principais do aplicativo.
 3. `/tactician` (Modo B): cria o design system a partir dos fluxos pesquisados e publica a página de referência.
 4. Implementação no chat principal: **blacksmith** no back-end, **enchanter** no front-end.
 5. `/summoner`: sobe o projeto localmente (e gera a skill de startup) para testar.
-6. Ao fim de cada funcionalidade: **seer** (verificação no navegador) e **inquisitor** (revisão do código).
+6. Ao fim de cada funcionalidade: **seer** (verificação no navegador), **inquisitor** (revisão do código) e **loremaster** (atualiza a documentação).
 7. Quando for publicar: `/summoner` (deploy).
-8. **loremaster** quando o projeto tiver corpo, para gerar `docs/PROJETO.md`.
+8. **loremaster** antes de publicar, para revisar o documento inteiro e as divergências entre plano e código.
 
 ### Projeto existente que você ainda não conhece
 1. **loremaster**: gera `docs/PROJETO.md`.
@@ -64,7 +65,7 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 ## 4. Regras para o agente principal
 
 - **ranger faz perguntas por pausa e retomada.** Quando ele retornar `STATUS: AGUARDANDO_RESPOSTA`, mostre as perguntas ao usuário exatamente como vieram (com `AskUserQuestion`), sem responder por ele, e retome **o mesmo agente** com `SendMessage` enviando as respostas literais. Repita até `STATUS: CONCLUIDO`.
-- **loremaster é imparcial.** No briefing, envie somente escopo, formato e local de saída. Não inclua resumos ou opiniões sobre o sistema.
+- **loremaster é imparcial e pode ser chamado a qualquer momento.** No briefing, envie somente escopo, formato e local de saída. Não inclua resumos ou opiniões sobre o sistema. Repasse ao usuário o que mudou no documento e o que ele ainda não reflete.
 - **seer precisa do app rodando.** No briefing, envie a URL, o fluxo a verificar e os dados de teste. Ele não sobe o projeto sozinho: antes, use a skill de startup do projeto ou o `/summoner`.
 - **inquisitor** recebe o escopo da revisão (mudanças não commitadas, um branch ou pastas). Repasse ao usuário os achados Críticos e Altos antes de seguir.
 - Skills (`tactician`, `blacksmith`, `enchanter`, `summoner`) rodam no chat principal e podem perguntar diretamente ao usuário.

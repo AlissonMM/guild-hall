@@ -19,7 +19,7 @@ docs/index.html      # página com todas as classes
 
 | Agente | O que faz |
 |---|---|
-| `loremaster` | Lê um projeto (somente leitura) e gera `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy e problemas conhecidos. |
+| `loremaster` | Lê um projeto (somente leitura) e mantém `docs/PROJETO.md` em qualquer fase (Planejado, Em construção, Implementado): guia rápido, regras de negócio com evidência, stack, arquitetura, deploy, problemas conhecidos e histórico do documento. |
 | `ranger` | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/` e opcionalmente no Figma. Faz perguntas pausando e sendo retomado pelo agente principal (`STATUS: AGUARDANDO_RESPOSTA` → `SendMessage` com as respostas). |
 | `seer` | Abre o app no navegador, percorre um fluxo em celular e desktop e compara com o design system e as referências. Não altera código. |
 | `inquisitor` | Revisa código pronto de back-end e front-end (segurança, acessibilidade, desempenho, ADRs, design system, testes). Somente leitura. |
