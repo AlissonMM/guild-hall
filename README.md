@@ -29,6 +29,7 @@ skills/              # skills (uma pasta por skill, com SKILL.md)
 | `tactician` | Modo A: planejamento técnico de back-end e front-end com ADRs em `docs/adr/`. Modo B: design system em `docs/design-system.md` + página de referência publicada como Artifact no estilo do produto. |
 | `blacksmith` | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. |
 | `enchanter` | Regras ao programar front-end: design system, acessibilidade, responsividade, estados de tela, desempenho, segurança, testes. |
+| `summoner` | Faz o projeto rodar (Docker Compose, híbrido ou nativo), cria Dockerfiles/compose/scripts, gera a skill de startup do projeto e prepara o deploy. |
 
 ## Instalação
 
