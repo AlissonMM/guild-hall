@@ -18,15 +18,17 @@ skills/              # skills (uma pasta por skill, com SKILL.md)
 |---|---|
 | `loremaster` | Lê um projeto (somente leitura) e gera `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy e problemas conhecidos. |
 | `ranger` | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/` e opcionalmente no Figma. Faz perguntas pausando e sendo retomado pelo agente principal (`STATUS: AGUARDANDO_RESPOSTA` → `SendMessage` com as respostas). |
-| `inquisitor` | Revisa back-end pronto (segurança, desempenho, ADRs, testes). Somente leitura. |
+| `seer` | Abre o app no navegador, percorre um fluxo em celular e desktop e compara com o design system e as referências. Não altera código. |
+| `inquisitor` | Revisa código pronto de back-end e front-end (segurança, acessibilidade, desempenho, ADRs, design system, testes). Somente leitura. |
 
 ## Skills
 
 | Skill | O que faz |
 |---|---|
 | `guildmaster` | Explica como todas as peças do plugin se relacionam e em que ordem usar. Comece por aqui: `/guildmaster`. |
-| `tactician` | Entrevista inicial do back-end (stack, arquitetura, banco, autenticação, API) e registro das decisões em `docs/adr/`. |
+| `tactician` | Modo A: planejamento técnico de back-end e front-end com ADRs em `docs/adr/`. Modo B: design system em `docs/design-system.md` + página de referência publicada como Artifact no estilo do produto. |
 | `blacksmith` | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. |
+| `enchanter` | Regras ao programar front-end: design system, acessibilidade, responsividade, estados de tela, desempenho, segurança, testes. |
 
 ## Instalação
 
