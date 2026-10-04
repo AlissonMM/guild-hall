@@ -1,151 +1,156 @@
 # Guild Hall
 
-Plugin do Claude Code · v0.2.0
+🇬🇧 **English** · [🇧🇷 Português](README.pt-BR.md)
 
-Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.
+Claude Code plugin · v0.2.0
 
-Versão visual desta página: abra [`index.html`](index.html) no navegador (ou a página publicada no Claude: https://claude.ai/artifact/KUe63e4HmUWxtKqdUs5bix).
+Nine Claude agents and skills organized as RPG classes. Each class has a role in the party, and they pass information to each other through files inside your project, so nobody asks you the same thing twice.
 
-## Recrutar a guilda
+Visual version of this page: open [`index.html`](index.html) in your browser.
+
+> The agents and skills themselves are written in Portuguese, but they work in any language: they detect your project's language and answer in the language you use.
+
+## Recruit the guild
 
 ```
 /plugin marketplace add AlissonMM/guild-hall
 /plugin install guild-hall@alissonmm-toolkit
 ```
 
-Rode dentro do `claude` no terminal, ou use **+ › Plugins** no app desktop. Depois, abra uma conversa nova e comece por `/guildmaster`.
+Run these inside `claude` in the terminal, or use **+ › Plugins** in the desktop app. Then open a new conversation and start with `/guildmaster`.
 
-Para atualizar depois de uma mudança no repositório: `claude plugin update guild-hall@alissonmm-toolkit` (ou **Update now** no painel de plugins) e abra uma conversa nova.
+To update after a change in the repository: `claude plugin update guild-hall@alissonmm-toolkit` (or **Update now** in the plugins panel), then open a new conversation.
 
-## As classes
+## The classes
 
-Skills rodam no chat principal e podem conversar com você. Agentes trabalham isolados e devolvem só o resultado.
+Skills run in the main chat and can talk to you. Agents work in isolation and return only the result.
 
-| Classe | Tipo | Papel | Esmalte |
+| Class | Type | Role | Tincture |
 |---|---|---|---|
-| Guildmaster | Skill | organiza | Or (ouro) |
-| Loremaster | Agente | conhece o mundo | Azure (azul) |
-| Ranger | Agente | explora | Vert (verde) |
-| Tactician | Skill | planeja | Purpure (púrpura) |
-| Blacksmith | Skill | forja o back-end | Sable (negro) |
-| Enchanter | Skill | dá forma ao front-end | Murrey (amora) |
-| Summoner | Skill | invoca o projeto | Tenné (laranja) |
-| Seer | Agente | enxerga o resultado | Celeste (azul-céu) |
-| Inquisitor | Agente | fiscaliza | Gules (vermelho) |
+| Guildmaster | Skill | organizes | Or (gold) |
+| Loremaster | Agent | knows the world | Azure (blue) |
+| Ranger | Agent | explores | Vert (green) |
+| Tactician | Skill | plans | Purpure (purple) |
+| Blacksmith | Skill | forges the back end | Sable (black) |
+| Enchanter | Skill | shapes the front end | Murrey (mulberry) |
+| Summoner | Skill | summons the project | Tenné (orange) |
+| Seer | Agent | sees the result | Celeste (sky blue) |
+| Inquisitor | Agent | inspects | Gules (red) |
 
-### Guildmaster · Skill · organiza
-Explica como o grupo trabalha: o que cada classe faz, em que ordem chamar e quais arquivos uma passa para a outra.
-- **Chamar:** `/guildmaster`
-- **Escreve:** nada
+### Guildmaster · Skill · organizes
+Explains how the party works: what each class does, in which order to call them and which files one hands to another.
+- **Call:** `/guildmaster`
+- **Writes:** nothing
 
-### Loremaster · Agente · conhece o mundo
-Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou.
-- **Chamar:** "use o loremaster para documentar este projeto"
-- **Escreve:** `docs/PROJETO.md`
+### Loremaster · Agent · knows the world
+Reads the project without opinions and keeps the reference document at any stage: what is planned, in progress and implemented, business rules with evidence (file:line), stack, deployment and known issues. Every run, it reports what changed.
+- **Call:** "use the loremaster to document this project"
+- **Writes:** `docs/PROJETO.md`
 
-### Ranger · Agente · explora
-Pesquisa fluxos e telas de apps reais no Mobbin, Lazyweb, Refero ou na web e salva as referências, também no Figma se você quiser. Pausa para perguntar e é retomado pelo chat principal.
-- **Chamar:** "use o ranger para pesquisar o fluxo de checkout"
-- **Escreve:** `docs/pesquisa-fluxos/`
+### Ranger · Agent · explores
+Researches flows and screens of real apps on Mobbin, Lazyweb, Refero or the web and saves the references, also to Figma if you want. It pauses to ask questions and is resumed by the main chat.
+- **Call:** "use the ranger to research the checkout flow"
+- **Writes:** `docs/pesquisa-fluxos/`
 
-### Tactician · Skill · planeja
-Modo A: stack, arquitetura e decisões de back-end e front-end, sempre recomendando uma opção. Modo B: design system com página de referência publicada no estilo do próprio produto.
-- **Chamar:** `/tactician`
-- **Escreve:** `docs/adr/`, `docs/design-system.md`
+### Tactician · Skill · plans
+Mode A: stack, architecture and back-end and front-end decisions, always recommending an option. Mode B: a design system with a reference page published in the product's own style.
+- **Call:** `/tactician`
+- **Writes:** `docs/adr/`, `docs/design-system.md`
 
-### Blacksmith · Skill · forja o back-end
-Regras ao programar back-end: segurança (OWASP), legibilidade, desempenho, migrações e testes. Pergunta só sobre decisões caras de desfazer.
-- **Chamar:** carrega sozinha, ou `/blacksmith`
-- **Escreve:** código e novos ADRs
+### Blacksmith · Skill · forges the back end
+Rules for writing back-end code: security (OWASP), readability, performance, migrations and tests. It only asks about decisions that are expensive to undo.
+- **Call:** loads on its own, or `/blacksmith`
+- **Writes:** code and new ADRs
 
-### Enchanter · Skill · dá forma ao front-end
-Regras ao programar front-end: só tokens do design system, acessibilidade WCAG 2.2 AA, mobile-first, estados de tela, desempenho e segurança contra XSS.
-- **Chamar:** carrega sozinha, ou `/enchanter`
-- **Escreve:** código e novos ADRs
+### Enchanter · Skill · shapes the front end
+Rules for writing front-end code: design system tokens only, WCAG 2.2 AA accessibility, mobile-first, screen states, performance and XSS protection.
+- **Call:** loads on its own, or `/enchanter`
+- **Writes:** code and new ADRs
 
-### Summoner · Skill · invoca o projeto
-Diagnostica a máquina, recomenda Docker Compose, híbrido ou nativo, cria o que faltar, sobe tudo e gera a skill de startup do projeto. Também prepara o deploy.
-- **Chamar:** `/summoner` · "suba o projeto"
-- **Escreve:** `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md`
+### Summoner · Skill · summons the project
+Checks your machine, recommends Docker Compose, hybrid or native, creates what is missing, starts everything and generates a startup skill for the project. It also prepares the deployment.
+- **Call:** `/summoner` · "start the project"
+- **Writes:** `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md`
 
-### Seer · Agente · enxerga o resultado
-Abre o app no navegador, percorre o fluxo em 375px e 1280px e compara com o design system e as referências. Aponta erros de console, rede e acessibilidade.
-- **Chamar:** "use o seer no fluxo de login em http://localhost:4200"
-- **Escreve:** só o relatório
+### Seer · Agent · sees the result
+Opens the app in the browser, walks through the flow at 375px and 1280px and compares it with the design system and the references. Reports console, network and accessibility errors.
+- **Call:** "use the seer on the login flow at http://localhost:4200"
+- **Writes:** only the report
 
-### Inquisitor · Agente · fiscaliza
-Revisa o código pronto de back-end e front-end: segurança, acessibilidade, desempenho, ADRs, design system e testes. Entrega os achados por severidade e um veredito.
-- **Chamar:** "use o inquisitor nas mudanças"
-- **Escreve:** só o relatório
+### Inquisitor · Agent · inspects
+Reviews finished back-end and front-end code: security, accessibility, performance, ADRs, design system and tests. Returns findings by severity and a verdict.
+- **Call:** "use the inquisitor on the changes"
+- **Writes:** only the report
 
-## A campanha
+## The campaign
 
-A ordem recomendada para um projeto novo. Cada passo deixa um arquivo que o próximo lê.
+The recommended order for a new project. Each step leaves a file that the next one reads.
 
-1. **Tactician · Modo A**: define stack e arquitetura de back-end e front-end com você e registra cada decisão em `docs/adr/`.
-2. **Ranger**: pesquisa como apps conhecidos resolvem os fluxos principais do seu produto.
-3. **Tactician · Modo B**: cria o design system a partir dos fluxos pesquisados e publica a página de referência.
-4. **Blacksmith e Enchanter**: você e o chat principal constroem o back-end e as telas seguindo os ADRs e o design system.
-5. **Summoner**: sobe o projeto na sua máquina e gera a skill de startup para as próximas vezes.
-6. **Seer, Inquisitor e Loremaster**: a cada funcionalidade, verificação no navegador, revisão do código e atualização da documentação.
-7. **Summoner · deploy**: quando for publicar, escolhe o destino, prepara HTTPS, segredos e backups, e faz o deploy com a sua confirmação.
-8. **Loremaster**: antes de publicar, revisa o documento inteiro e aponta as divergências entre plano e código. Ele também pode ser chamado logo no início, para documentar o plano.
+1. **Tactician · Mode A**: defines the back-end and front-end stack and architecture with you and records each decision in `docs/adr/`.
+2. **Ranger**: researches how well-known apps solve your product's main flows.
+3. **Tactician · Mode B**: creates the design system from the researched flows and publishes the reference page.
+4. **Blacksmith and Enchanter**: you and the main chat build the back end and the screens following the ADRs and the design system.
+5. **Summoner**: starts the project on your machine and generates the startup skill for next time.
+6. **Seer, Inquisitor and Loremaster**: after each feature, browser check, code review and documentation update.
+7. **Summoner · deployment**: when you are ready to publish, it picks the target, sets up HTTPS, secrets and backups, and deploys with your confirmation.
+8. **Loremaster**: before publishing, reviews the whole document and points out where the plan and the code diverge. It can also be called right at the start to document the plan.
 
-### Projeto existente que você não conhece
-1. **Loremaster** documenta o projeto.
-2. **Tactician A** registra o que já existe como ADR.
-3. **Tactician B** extrai o estilo atual, se não houver design system.
-4. **Summoner** aprende a subir o projeto.
-5. Segue como na campanha, a partir do passo 4.
+### An existing project you don't know yet
+1. **Loremaster** documents the project.
+2. **Tactician A** records what already exists as ADRs.
+3. **Tactician B** extracts the current style, if there is no design system.
+4. **Summoner** learns how to start the project.
+5. Continue as in the campaign, from step 4.
 
-### Nova funcionalidade com tela
-1. **Ranger** traz as referências.
-2. Você decide o que adotar.
-3. **Blacksmith** e **Enchanter** constroem.
-4. **Seer** e **Inquisitor** conferem.
-5. **Loremaster** atualiza a documentação.
+### A new feature with a screen
+1. **Ranger** brings the references.
+2. You decide what to adopt.
+3. **Blacksmith** and **Enchanter** build it.
+4. **Seer** and **Inquisitor** check it.
+5. **Loremaster** updates the documentation.
 
-## Os pergaminhos
+## The scrolls
 
-Os arquivos que as classes deixam no seu projeto. São a memória compartilhada do grupo.
+The files the classes leave in your project. They are the party's shared memory.
 
-| Arquivo | Quem escreve | Quem lê |
+| File | Written by | Read by |
 |---|---|---|
-| `docs/PROJETO.md` | Loremaster | todas as outras classes |
-| `docs/pesquisa-fluxos/<tema>.md` | Ranger | Tactician, Enchanter, Seer, Blacksmith |
+| `docs/PROJETO.md` | Loremaster | every other class |
+| `docs/pesquisa-fluxos/<topic>.md` | Ranger | Tactician, Enchanter, Seer, Blacksmith |
 | `docs/adr/*.md` | Tactician, Blacksmith, Enchanter | Blacksmith, Enchanter, Seer, Inquisitor, Loremaster |
-| `docs/design-system.md` + página | Tactician | Enchanter, Seer, Inquisitor |
-| `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md` | Summoner | Seer (URLs do app rodando), Loremaster |
+| `docs/design-system.md` + page | Tactician | Enchanter, Seer, Inquisitor |
+| `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md` | Summoner | Seer (URLs of the running app), Loremaster |
 
-## Regras da guilda
+## Guild rules
 
-Combinados que o chat principal segue ao chamar os agentes.
+Agreements the main chat follows when calling the agents.
 
-- **O ranger pausa.** Quando ele responder `STATUS: AGUARDANDO_RESPOSTA`, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.
-- **O loremaster é imparcial.** O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.
-- **O seer precisa do app de pé.** Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.
-- **O inquisitor tem escopo.** Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.
+- **The ranger pauses.** When it replies `STATUS: AGUARDANDO_RESPOSTA`, its questions go to you exactly as they came, and the same agent is resumed with your answers.
+- **The loremaster is impartial.** The briefing carries only scope, format and output location. No summary or opinion about the system. It can be called at any stage of the project.
+- **The seer needs the app running.** It receives the URL, the flow and the test data. If the app is not running, call the project's startup skill or the summoner first.
+- **The inquisitor has a scope.** Uncommitted changes, a branch or folders. Critical and High findings reach you before moving on.
 
-## Estrutura do repositório
+## Repository layout
 
 ```
 .claude-plugin/
-  plugin.json        # manifesto do plugin
-  marketplace.json   # permite instalar este repo como marketplace
-agents/              # agentes (um .md por agente)
-skills/              # skills (uma pasta por skill, com SKILL.md)
-index.html           # versão visual deste README
-README.md
+  plugin.json        # plugin manifest
+  marketplace.json   # lets this repo be installed as a marketplace
+agents/              # agents (one .md per agent)
+skills/              # skills (one folder per skill, with SKILL.md)
+index.html           # visual version of this README
+README.md            # this version, in English
+README.pt-BR.md      # Portuguese version
 ```
 
-## Princípios
+## Principles
 
-- **Skill** = conhecimento e procedimento reutilizável (roda no contexto de quem a carrega).
-- **Agente** = trabalho pesado, barulhento ou paralelizável, com contexto isolado.
-- **Chat principal** = decisões com o usuário e trabalho muito acoplado.
-- As passagens entre fases acontecem por **arquivos** dentro do projeto.
-- Nenhuma classe traz contexto de projeto embutido: todas leem o projeto atual e detectam a stack na hora.
-- Toda classe nova entra no Guildmaster, neste README e no `index.html`.
+- **Skill** = reusable knowledge and procedure (runs in the context of whoever loads it).
+- **Agent** = heavy, noisy or parallel work, with isolated context.
+- **Main chat** = decisions with the user and tightly coupled work.
+- Handoffs between stages happen through **files** inside the project.
+- No class carries project-specific context: they all read the current project and detect the stack on the fly.
+- Every new class goes into the Guildmaster, both READMEs, `index.html` and the repository's "About".
 
 ---
 

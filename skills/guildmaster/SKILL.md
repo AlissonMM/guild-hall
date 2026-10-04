@@ -72,4 +72,4 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 
 ## 5. Mantendo este guia
 
-Sempre que um agente ou skill for adicionado, alterado ou removido do plugin, atualize as seções 1 a 4 deste arquivo, o `README.md` (que tem todo o texto da página) e a página `index.html` (na raiz) (que também está publicada como Artifact do Claude).
+Sempre que um agente ou skill for adicionado, alterado ou removido do plugin, atualize as seções 1 a 4 deste arquivo, os dois READMEs com todo o texto da página (`README.md` em inglês e `README.pt-BR.md` em português), a página `index.html` na raiz (também publicada como Artifact do Claude) e a descrição "About" do repositório no GitHub.
