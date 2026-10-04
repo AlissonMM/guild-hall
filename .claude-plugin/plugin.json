@@ -1,7 +1,7 @@
 {
-  "name": "claude-agents-toolkit",
-  "description": "Agentes e skills universais: pesquisa de fluxos, implementação, revisão de código e geração de vídeo.",
-  "version": "0.1.0",
+  "name": "guild-hall",
+  "description": "Agentes e skills do Claude Code organizados como classes de RPG: documentação de projetos, pesquisa de fluxos, planejamento, design system, back-end, front-end, execução local e deploy, verificação e revisão.",
+  "version": "0.2.0",
   "author": {
     "name": "AlissonMM"
   }

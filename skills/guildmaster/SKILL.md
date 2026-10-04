@@ -1,9 +1,9 @@
 ---
 name: guildmaster
-description: Guia de uso do plugin claude-agents-toolkit. Explica quais agentes e skills existem, quando usar cada um, em que ordem e como eles se passam informações por arquivos (docs/PROJETO.md, docs/pesquisa-fluxos/, docs/adr/, docs/design-system.md). Use quando o usuário perguntar como usar o toolkit, quais agentes ou skills existem, por onde começar um projeto, ou quando uma tarefa envolver mais de uma peça do toolkit.
+description: Guia de uso do plugin guild-hall. Explica quais agentes e skills existem, quando usar cada um, em que ordem e como eles se passam informações por arquivos (docs/PROJETO.md, docs/pesquisa-fluxos/, docs/adr/, docs/design-system.md). Use quando o usuário perguntar como usar o Guild Hall (ou o toolkit), quais agentes ou skills existem, por onde começar um projeto, ou quando uma tarefa envolver mais de uma peça do toolkit.
 ---
 
-# Guia do claude-agents-toolkit
+# Guia do Guild Hall
 
 Este plugin reúne agentes e skills **universais**: nenhum deles traz contexto de um projeto específico. Todos descobrem o contexto lendo o projeto atual e trocam informações por **arquivos** dentro dele.
 
@@ -71,4 +71,4 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 
 ## 5. Mantendo este guia
 
-Sempre que um agente ou skill for adicionado, alterado ou removido do plugin, atualize as seções 1 a 4 deste arquivo e as tabelas do `README.md` do repositório.
+Sempre que um agente ou skill for adicionado, alterado ou removido do plugin, atualize as seções 1 a 4 deste arquivo, as tabelas do `README.md` e a página `docs/index.html` (que também está publicada como Artifact do Claude).

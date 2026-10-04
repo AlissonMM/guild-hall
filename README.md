@@ -1,6 +1,8 @@
-# claude-agents-toolkit
+# Guild Hall
 
-Plugin do Claude Code com agentes e skills **universais**, independentes de projeto.
+Plugin do Claude Code com agentes e skills **universais**, independentes de projeto, organizados como classes de RPG.
+
+Visão geral visual: abra [`docs/index.html`](docs/index.html) no navegador (ou a página publicada no Claude: https://claude.ai/artifact/KUe63e4HmUWxtKqdUs5bix).
 
 ## Estrutura
 
@@ -10,6 +12,7 @@ Plugin do Claude Code com agentes e skills **universais**, independentes de proj
   marketplace.json   # permite instalar este repo como marketplace
 agents/              # subagentes (um .md por agente)
 skills/              # skills (uma pasta por skill, com SKILL.md)
+docs/index.html      # página com todas as classes
 ```
 
 ## Agentes
@@ -36,8 +39,8 @@ skills/              # skills (uma pasta por skill, com SKILL.md)
 Dentro do Claude Code (em qualquer máquina com acesso a este repositório):
 
 ```
-/plugin marketplace add AlissonMM/claude-agents-toolkit
-/plugin install claude-agents-toolkit@alissonmm-toolkit
+/plugin marketplace add AlissonMM/guild-hall
+/plugin install guild-hall@alissonmm-toolkit
 ```
 
 ## Princípios
