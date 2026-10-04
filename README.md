@@ -18,6 +18,15 @@ skills/              # skills (uma pasta por skill, com SKILL.md)
 |---|---|
 | `project-cartographer` | Lê um projeto (somente leitura) e gera `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy e problemas conhecidos. |
 | `flow-scout` | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/` e opcionalmente no Figma. Faz perguntas pausando e sendo retomado pelo agente principal (`STATUS: AGUARDANDO_RESPOSTA` → `SendMessage` com as respostas). |
+| `backend-reviewer` | Revisa back-end pronto (segurança, desempenho, ADRs, testes). Somente leitura. |
+
+## Skills
+
+| Skill | O que faz |
+|---|---|
+| `toolkit-guide` | Explica como todas as peças do plugin se relacionam e em que ordem usar. Comece por aqui: `/toolkit-guide`. |
+| `backend-kickoff` | Entrevista inicial do back-end (stack, arquitetura, banco, autenticação, API) e registro das decisões em `docs/adr/`. |
+| `backend-guidelines` | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. |
 
 ## Instalação
 
