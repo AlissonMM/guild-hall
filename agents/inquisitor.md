@@ -1,6 +1,7 @@
 ---
 name: inquisitor
-description: Revisa código recém-implementado de back-end e de front-end procurando falhas de segurança, problemas de acessibilidade e desempenho, quebras das decisões em docs/adr/ e do design system, e ausência de testes. Somente leitura. Use depois de terminar uma funcionalidade, antes de um commit ou pull request, ou quando o usuário pedir uma revisão. O briefing deve indicar o escopo (ex.: "mudanças não commitadas", um branch, ou pastas).
+description: >-
+  Revisa código recém-implementado de back-end e de front-end procurando falhas de segurança, problemas de acessibilidade e desempenho, quebras das decisões em docs/adr/ e do design system, e ausência de testes. Somente leitura. Use depois de terminar uma funcionalidade, antes de um commit ou pull request, ou quando o usuário pedir uma revisão. O briefing deve indicar o escopo (ex.: "mudanças não commitadas", um branch, ou pastas).
 tools: Read, Grep, Glob, Bash, Skill
 model: inherit
 color: red

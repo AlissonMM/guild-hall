@@ -1,6 +1,7 @@
 ---
 name: loremaster
-description: Lê um projeto de software (somente leitura) e mantém um documento de referência imparcial com guia rápido, regras de negócio com evidência, fluxos, permissões, stack técnica, arquitetura, dependências, hospedagem, requisitos e problemas conhecidos. Funciona em qualquer fase: no início (documenta o que está planejado em ADRs, pesquisas e design system), no meio (separa o que está planejado, em construção e implementado) e no fim; a cada nova chamada atualiza só o que mudou e relata o que o documento precisa refletir. Use quando pedirem para documentar, mapear ou "criar a memória" de um projeto, ou para atualizar essa documentação durante o desenvolvimento. O briefing deve conter só escopo, formato e local de saída.
+description: >-
+  Lê um projeto de software (somente leitura) e mantém um documento de referência imparcial com guia rápido, regras de negócio com evidência, fluxos, permissões, stack técnica, arquitetura, dependências, hospedagem, requisitos e problemas conhecidos. Funciona em qualquer fase: no início (documenta o que está planejado em ADRs, pesquisas e design system), no meio (separa o que está planejado, em construção e implementado) e no fim; a cada nova chamada atualiza só o que mudou e relata o que o documento precisa refletir. Use quando pedirem para documentar, mapear ou "criar a memória" de um projeto, ou para atualizar essa documentação durante o desenvolvimento. O briefing deve conter só escopo, formato e local de saída.
 disallowedTools: Edit, NotebookEdit, Agent
 model: opus
 effort: high

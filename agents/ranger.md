@@ -1,6 +1,7 @@
 ---
 name: ranger
-description: Pesquisa referências reais de fluxos e telas de aplicativos (Mobbin, Lazyweb, Refero ou busca web) para embasar a criação de uma tela ou fluxo, e opcionalmente salva as referências no Figma. Use quando o usuário pedir referências, benchmarks ou inspiração de fluxos/telas (ex.: "fluxo de checkout parecido com o do Uber"). PROTOCOLO OBRIGATÓRIO: este agente pausa para fazer perguntas ao usuário. Quando ele retornar "STATUS: AGUARDANDO_RESPOSTA", o agente principal deve mostrar as perguntas ao usuário exatamente como vieram (com AskUserQuestion, mantendo opções e a marcação "(Recomendado)"), sem responder por conta própria, e então retomar ESTE MESMO agente com SendMessage enviando as respostas literais do usuário. Repita até receber "STATUS: CONCLUIDO".
+description: >-
+  Pesquisa referências reais de fluxos e telas de aplicativos (Mobbin, Lazyweb, Refero ou busca web) para embasar a criação de uma tela ou fluxo, e opcionalmente salva as referências no Figma. Use quando o usuário pedir referências, benchmarks ou inspiração de fluxos/telas (ex.: "fluxo de checkout parecido com o do Uber"). PROTOCOLO OBRIGATÓRIO: este agente pausa para fazer perguntas ao usuário. Quando ele retornar "STATUS: AGUARDANDO_RESPOSTA", o agente principal deve mostrar as perguntas ao usuário exatamente como vieram (com AskUserQuestion, mantendo opções e a marcação "(Recomendado)"), sem responder por conta própria, e então retomar ESTE MESMO agente com SendMessage enviando as respostas literais do usuário. Repita até receber "STATUS: CONCLUIDO".
 disallowedTools: Edit, NotebookEdit, Agent
 model: inherit
 color: purple
