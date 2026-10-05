@@ -78,7 +78,7 @@ Para cada decisão, crie um arquivo em `docs/adr/` numerado em sequência, com n
 - Negativas / riscos: <...>
 ```
 
-Mantenha `docs/adr/README.md` com um índice (número, título, status, link). Para **mudar** uma decisão, crie um novo ADR e marque o antigo como `Status: Substituída por ADR 000X`; não edite o original.
+Mantenha `docs/adr/README.md` com um índice (número, título, status, link). Para **mudar** uma decisão, crie um novo ADR com a decisão nova e, no ADR antigo, altere **apenas a linha de status** para `Status: Substituída por ADR 000X`; o resto do arquivo antigo fica intacto como histórico. Atualize o índice.
 
 ## A6. Encerramento
 1. Resumo curto das decisões, com links dos ADRs.
@@ -92,6 +92,14 @@ Mantenha `docs/adr/README.md` com um índice (número, título, status, link). P
 O resultado tem duas partes:
 1. **`docs/design-system.md`**: a fonte da verdade, lida pela skill `enchanter` e pelos agentes `seer` e `inquisitor`.
 2. **Uma página de referência publicada como Artifact do Claude**, construída **com o próprio design system** (fundo, cores, fontes, botões e bordas do produto), para que a página já mostre o estilo funcionando.
+
+## B0. Design system já existe?
+Se `docs/design-system.md` já existir, você está **atualizando**, não criando:
+1. Leia o documento atual e o link da página publicada (registrado no cabeçalho dele).
+2. Pergunte só o que muda (ex.: nova cor, novo componente, ajuste de contraste) e mantenha o resto.
+3. Atualize o **mesmo** `docs/design-system.md`: altere os capítulos afetados e acrescente uma linha no capítulo 12 (Referências) com a data e o resumo da mudança.
+4. Republique a **mesma** página do Artifact, passando o link existente como `url`, para manter o mesmo endereço.
+5. Registre a mudança num **ADR novo** (ex.: `NNNN-design-system-nova-paleta.md`) que referencia o ADR anterior do design system, marcando o anterior como `Substituída por ADR NNNN` quando a mudança for de identidade (paleta, tipografia), ou apenas citando-o quando for um acréscimo (novo componente).
 
 ## B1. Coleta de insumos (sem perguntar)
 Junte o que existir, nesta ordem de prioridade:
@@ -132,7 +140,13 @@ Regras:
 - Se o estilo foi inspirado num site de terceiros, inclua um aviso de origem no início, deixando claro que nada foi copiado e que não há afiliação.
 
 ## B4. Publicação
-1. Escreva `docs/design-system.md` no projeto.
+1. Escreva `docs/design-system.md` no projeto, com um cabeçalho de comentário contendo o link da página publicada e a data da última atualização:
+   ```
+   <!-- tactician design-system
+   pagina: <link do Artifact>
+   atualizado: <AAAA-MM-DD>
+   -->
+   ```
 2. Publique a página de referência como **Artifact**, seguindo as instruções da ferramenta `Artifact` da sessão (incluindo o `quickstart`, se a ferramenta pedir, e a skill de design de artifacts que ela indicar). A página deve:
    - usar os tokens do próprio design system em todo o layout (fundo, textos, títulos, links, tabelas, botões);
    - ter um índice com os capítulos 00 a 12;
