@@ -2,7 +2,7 @@
 
 🇬🇧 **English** · [🇧🇷 Português](README.pt-BR.md)
 
-Claude Code plugin · v0.2.0
+Claude Code plugin · v0.2.1
 
 Nine Claude agents and skills organized as RPG classes. Each class has a role in the party, and they pass information to each other through files inside your project, so nobody asks you the same thing twice.
 

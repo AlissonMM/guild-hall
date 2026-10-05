@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) · 🇧🇷 **Português**
 
-Plugin do Claude Code · v0.2.0
+Plugin do Claude Code · v0.2.1
 
 Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.
 
