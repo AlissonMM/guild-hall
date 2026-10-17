@@ -2,7 +2,7 @@
 
 🇬🇧 **English** · [🇧🇷 Português](README.pt-BR.md)
 
-Claude Code plugin · v0.2.2
+Claude Code plugin · v0.3.0
 
 Nine Claude agents and skills organized as RPG classes. Each class has a role in the party, and they pass information to each other through files inside your project, so nobody asks you the same thing twice.
 
@@ -43,7 +43,7 @@ Explains how the party works: what each class does, in which order to call them 
 - **Writes:** nothing
 
 ### Loremaster · Agent · knows the world
-Reads the project without opinions and keeps the reference document at any stage: what is planned, in progress and implemented, business rules with evidence (file:line), stack, deployment and known issues. Every run, it reports what changed.
+Reads the project without opinions and keeps the reference document at any stage: what is planned, in progress and implemented, business rules with evidence (file:line), stack, deployment and known issues. Every run, it reports what changed. If the project has a [Graphify](https://github.com/Graphify-Labs/graphify) graph (`graphify-out/`), it uses it as a map to navigate, but only writes what the code confirms.
 - **Call:** "use the loremaster to document this project"
 - **Writes:** `docs/PROJETO.md`
 
@@ -127,6 +127,7 @@ Agreements the main chat follows when calling the agents.
 
 - **The ranger pauses.** When it replies `STATUS: AGUARDANDO_RESPOSTA`, its questions go to you exactly as they came, and the same agent is resumed with your answers.
 - **The loremaster is impartial.** The briefing carries only scope, format and output location. No summary or opinion about the system. It can be called at any stage of the project.
+- **Graphify is optional and stays with you.** The loremaster only reads the graph. To generate it, run `/graphify .` in the main chat (and `/graphify . --obsidian` if you want an Obsidian vault).
 - **The seer needs the app running.** It receives the URL, the flow and the test data. If the app is not running, call the project's startup skill or the summoner first.
 - **The inquisitor has a scope.** Uncommitted changes, a branch or folders. Critical and High findings reach you before moving on.
 

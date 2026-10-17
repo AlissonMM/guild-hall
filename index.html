@@ -130,7 +130,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
 
   <header class="hero">
     <div>
-      <div class="eyebrow">Plugin do Claude Code · v0.2.2</div>
+      <div class="eyebrow">Plugin do Claude Code · v0.3.0</div>
       <h1>Guild <span>Hall</span></h1>
       <p class="lede">Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.</p>
     </div>
@@ -167,7 +167,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
       <article class="card" data-kind="Agente" style="--t:var(--azure)">
         <div class="shield" aria-hidden="true">L</div>
         <div><h3>Loremaster</h3><div class="meta"><span class="kind">Agente</span><span class="role">conhece o mundo</span></div></div>
-        <p class="does">Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou.</p>
+        <p class="does">Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou. Se o projeto tiver um grafo do Graphify, usa-o como mapa, mas só escreve o que o código confirma.</p>
         <dl><dt>Chamar</dt><dd>“use o loremaster para documentar este projeto”</dd><dt>Escreve</dt><dd><code>docs/PROJETO.md</code></dd></dl>
         <p class="tincture">Esmalte: <b>Azure</b> (azul)</p>
       </article>
@@ -304,6 +304,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
     <div class="rules">
       <div class="rule" style="--t:var(--vert)"><h3>O ranger pausa</h3><p>Quando ele responder <code>STATUS: AGUARDANDO_RESPOSTA</code>, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.</p></div>
       <div class="rule" style="--t:var(--azure)"><h3>O loremaster é imparcial</h3><p>O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.</p></div>
+      <div class="rule" style="--t:var(--or)"><h3>O Graphify é opcional</h3><p>O loremaster só lê o grafo. Quem o gera é você, no chat principal, com <code>/graphify .</code> (e <code>--obsidian</code> para um cofre do Obsidian).</p></div>
       <div class="rule" style="--t:var(--celeste)"><h3>O seer precisa do app de pé</h3><p>Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.</p></div>
       <div class="rule" style="--t:var(--gules)"><h3>O inquisitor tem escopo</h3><p>Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.</p></div>
     </div>

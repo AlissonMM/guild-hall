@@ -14,7 +14,7 @@ Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **
 | Peça | Tipo | Para que serve | Como chamar |
 |---|---|---|---|
 | `guildmaster` | Skill | Este guia. | `/guildmaster` |
-| `loremaster` | Agente | Lê o projeto (somente leitura) e mantém `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy, problemas conhecidos. Funciona em qualquer fase: separa o que está Planejado, Em construção e Implementado, inclui mudanças não commitadas e, a cada chamada, atualiza só o que mudou e relata o que o documento ainda não reflete. | "use o loremaster para documentar este projeto" |
+| `loremaster` | Agente | Lê o projeto (somente leitura) e mantém `docs/PROJETO.md`: guia rápido, regras de negócio com evidência, stack, arquitetura, deploy, problemas conhecidos. Funciona em qualquer fase: separa o que está Planejado, Em construção e Implementado, inclui mudanças não commitadas e, a cada chamada, atualiza só o que mudou e relata o que o documento ainda não reflete. Se o projeto tiver um grafo do Graphify (`graphify-out/`), usa-o como mapa para navegar, sem tratá-lo como evidência. | "use o loremaster para documentar este projeto" |
 | `ranger` | Agente | Pesquisa referências de fluxos e telas (Mobbin, Lazyweb, Refero ou web), salva em `docs/pesquisa-fluxos/<tema>.md` e opcionalmente no Figma. | "use o ranger para pesquisar o fluxo de <x>" |
 | `tactician` | Skill | **Modo A**: planejamento técnico de back-end e front-end (stack, arquitetura, banco, autenticação, API, estilização, estado, testes), com ADRs em `docs/adr/`. **Modo B**: design system em `docs/design-system.md` e página de referência publicada como Artifact no estilo do produto. | `/tactician` (diga se é planejamento ou design system) |
 | `blacksmith` | Skill | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. | Carrega sozinha ao codar back-end, ou `/blacksmith` |
@@ -65,6 +65,7 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 ## 4. Regras para o agente principal
 
 - **ranger faz perguntas por pausa e retomada.** Quando ele retornar `STATUS: AGUARDANDO_RESPOSTA`, mostre as perguntas ao usuário exatamente como vieram (com `AskUserQuestion`), sem responder por ele, e retome **o mesmo agente** com `SendMessage` enviando as respostas literais. Repita até `STATUS: CONCLUIDO`.
+- **Graphify é opcional e fica com você.** O loremaster só **lê** o grafo (`graphify query/path/explain`). Quem gera ou atualiza o grafo é o chat principal, com `/graphify .` (ou `/graphify . --update`), e o cofre do Obsidian só com `/graphify . --obsidian`. Gere o grafo antes de chamar o loremaster quando o projeto for grande.
 - **loremaster é imparcial e pode ser chamado a qualquer momento.** No briefing, envie somente escopo, formato e local de saída. Não inclua resumos ou opiniões sobre o sistema. Repasse ao usuário o que mudou no documento e o que ele ainda não reflete.
 - **seer precisa do app rodando.** No briefing, envie a URL, o fluxo a verificar e os dados de teste. Ele não sobe o projeto sozinho: antes, use a skill de startup do projeto ou o `/summoner`.
 - **inquisitor** recebe o escopo da revisão (mudanças não commitadas, um branch ou pastas). Repasse ao usuário os achados Críticos e Altos antes de seguir.

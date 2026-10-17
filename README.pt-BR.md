@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) · 🇧🇷 **Português**
 
-Plugin do Claude Code · v0.2.2
+Plugin do Claude Code · v0.3.0
 
 Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.
 
@@ -41,7 +41,7 @@ Explica como o grupo trabalha: o que cada classe faz, em que ordem chamar e quai
 - **Escreve:** nada
 
 ### Loremaster · Agente · conhece o mundo
-Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou.
+Lê o projeto sem opinar e mantém o documento de referência em qualquer fase: o que está planejado, em construção e implementado, regras de negócio com evidência (arquivo:linha), stack, deploy e problemas conhecidos. A cada chamada, conta o que mudou. Se o projeto tiver um grafo do [Graphify](https://github.com/Graphify-Labs/graphify) (`graphify-out/`), usa-o como mapa para navegar, mas só escreve o que o código confirma.
 - **Chamar:** "use o loremaster para documentar este projeto"
 - **Escreve:** `docs/PROJETO.md`
 
@@ -125,6 +125,7 @@ Combinados que o chat principal segue ao chamar os agentes.
 
 - **O ranger pausa.** Quando ele responder `STATUS: AGUARDANDO_RESPOSTA`, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.
 - **O loremaster é imparcial.** O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.
+- **O Graphify é opcional e fica com você.** O loremaster só lê o grafo. Para gerá-lo, rode `/graphify .` no chat principal (e `/graphify . --obsidian` se quiser um cofre do Obsidian).
 - **O seer precisa do app de pé.** Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.
 - **O inquisitor tem escopo.** Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.
 
