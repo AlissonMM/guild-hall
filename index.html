@@ -12,7 +12,7 @@
 :root{
   --ground:#e7e8e2; --vellum:#f3f3ee; --ink:#1d2027; --muted:#535a66; --rule:#c6c9bf;
   --or:#9a6f0e; --gules:#a3262a; --azure:#1f4e8c; --vert:#2c6838; --purpure:#6a3a7a;
-  --sable:#2a2d34; --murrey:#7b2d4e; --tenne:#a6531e; --celeste:#21708f;
+  --sable:#2a2d34; --murrey:#7b2d4e; --tenne:#a6531e; --celeste:#21708f; --cendree:#6d6354;
   --on-tincture:#f6f4ec;
   --font-display:'Grenze Gotisch','UnifrakturMaguntia',Georgia,serif;
   --font-body:'Alegreya Sans','Segoe UI',system-ui,sans-serif;
@@ -22,14 +22,14 @@
   :root:not([data-theme="light"]){
     --ground:#13161c; --vellum:#1b1f27; --ink:#e9e7e0; --muted:#a4a9b4; --rule:#2f3541;
     --or:#e0b44a; --gules:#e3605f; --azure:#78a6e6; --vert:#74b880; --purpure:#b991d4;
-    --sable:#c8ccd5; --murrey:#d77a9c; --tenne:#e5935a; --celeste:#62b6d6;
+    --sable:#c8ccd5; --murrey:#d77a9c; --tenne:#e5935a; --celeste:#62b6d6; --cendree:#c4b79d;
     --on-tincture:#14171d; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --ground:#13161c; --vellum:#1b1f27; --ink:#e9e7e0; --muted:#a4a9b4; --rule:#2f3541;
   --or:#e0b44a; --gules:#e3605f; --azure:#78a6e6; --vert:#74b880; --purpure:#b991d4;
-  --sable:#c8ccd5; --murrey:#d77a9c; --tenne:#e5935a; --celeste:#62b6d6;
+  --sable:#c8ccd5; --murrey:#d77a9c; --tenne:#e5935a; --celeste:#62b6d6; --cendree:#c4b79d;
   --on-tincture:#14171d; color-scheme:dark;
 }
 
@@ -130,9 +130,9 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
 
   <header class="hero">
     <div>
-      <div class="eyebrow">Plugin do Claude Code · v0.3.0</div>
+      <div class="eyebrow">Plugin do Claude Code · v0.4.0</div>
       <h1>Guild <span>Hall</span></h1>
-      <p class="lede">Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.</p>
+      <p class="lede">Dez agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.</p>
     </div>
     <div class="install" aria-labelledby="install-title">
       <h2 id="install-title">Recrutar a guilda</h2>
@@ -149,8 +149,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
         <p>Skills rodam no chat principal e podem conversar com você. Agentes trabalham isolados e devolvem só o resultado.</p>
       </div>
       <div class="filter" role="group" aria-label="Filtrar classes">
-        <button type="button" data-f="all" aria-pressed="true">Todas · 9</button>
-        <button type="button" data-f="Skill" aria-pressed="false">Skills · 5</button>
+        <button type="button" data-f="all" aria-pressed="true">Todas · 10</button>
+        <button type="button" data-f="Skill" aria-pressed="false">Skills · 6</button>
         <button type="button" data-f="Agente" aria-pressed="false">Agentes · 4</button>
       </div>
     </div>
@@ -211,6 +211,13 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
         <dl><dt>Chamar</dt><dd><code>/summoner</code> · “suba o projeto”</dd><dt>Escreve</dt><dd><code>docker-compose.yml</code>, <code>.claude/skills/startup-*</code>, <code>docs/deploy.md</code></dd></dl>
         <p class="tincture">Esmalte: <b>Tenné</b> (laranja)</p>
       </article>
+      <article class="card" data-kind="Skill" style="--t:var(--cendree)">
+        <div class="shield" aria-hidden="true">C</div>
+        <div><h3>Cartographer</h3><div class="meta"><span class="kind">Skill</span><span class="role">desenha o mapa</span></div></div>
+        <p class="does">Gera e atualiza o grafo de conhecimento do projeto com o Graphify, juntando o código e os documentos das outras classes. Avisa o custo antes e atualiza só o que mudou. O grafo guarda conceitos e ponteiros para a origem, não uma cópia do texto.</p>
+        <dl><dt>Chamar</dt><dd><code>/cartographer</code></dd><dt>Escreve</dt><dd><code>graphify-out/</code> (grafo, <code>graph.html</code>, relatório)</dd></dl>
+        <p class="tincture">Esmalte: <b>Cendrée</b> (cinza-cinza)</p>
+      </article>
 
       <article class="card" data-kind="Agente" style="--t:var(--celeste)">
         <div class="shield" aria-hidden="true">S</div>
@@ -244,6 +251,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
         <li style="--t:var(--purpure)"><span class="who">Tactician · Modo B</span><span class="what">Cria o design system a partir dos fluxos pesquisados e publica a página de referência.</span></li>
         <li style="--t:var(--sable)"><span class="who">Blacksmith e Enchanter</span><span class="what">Você e o chat principal constroem o back-end e as telas seguindo os ADRs e o design system.</span></li>
         <li style="--t:var(--tenne)"><span class="who">Summoner</span><span class="what">Sobe o projeto na sua máquina e gera a skill de startup para as próximas vezes.</span></li>
+        <li style="--t:var(--cendree)"><span class="who">Cartographer · opcional</span><span class="what">Gera o mapa do código e da documentação. Vale a pena antes do loremaster em projetos grandes.</span></li>
         <li style="--t:var(--celeste)"><span class="who">Seer, Inquisitor e Loremaster</span><span class="what">A cada funcionalidade: verificação no navegador, revisão do código e atualização da documentação.</span></li>
         <li style="--t:var(--tenne)"><span class="who">Summoner · deploy</span><span class="what">Quando for publicar: escolhe o destino, prepara HTTPS, segredos e backups, e faz o deploy com a sua confirmação.</span></li>
         <li style="--t:var(--azure)"><span class="who">Loremaster</span><span class="what">Antes de publicar, revisa o documento inteiro e aponta as divergências entre plano e código. Ele também pode ser chamado logo no início, para documentar o plano.</span></li>
@@ -289,6 +297,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
           <tr><td><code>docs/adr/*.md</code></td><td><span class="chip" style="--t:var(--purpure)">Tactician</span><span class="chip" style="--t:var(--sable)">Blacksmith</span><span class="chip" style="--t:var(--murrey)">Enchanter</span></td><td>Blacksmith, Enchanter, Seer, Inquisitor, Loremaster</td></tr>
           <tr><td><code>docs/design-system.md</code> + página</td><td><span class="chip" style="--t:var(--purpure)">Tactician</span></td><td>Enchanter, Seer, Inquisitor</td></tr>
           <tr><td><code>docker-compose.yml</code>, <code>.claude/skills/startup-*</code>, <code>docs/deploy.md</code></td><td><span class="chip" style="--t:var(--tenne)">Summoner</span></td><td>Seer (URLs do app rodando), Loremaster</td></tr>
+                  <tr><td><code>graphify-out/</code> (grafo)</td><td><span class="chip" style="--t:var(--cendree)">Cartographer</span></td><td>Loremaster (como mapa) e qualquer classe, via <code>graphify query</code></td></tr>
         </tbody>
       </table>
     </div>
@@ -304,7 +313,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);display
     <div class="rules">
       <div class="rule" style="--t:var(--vert)"><h3>O ranger pausa</h3><p>Quando ele responder <code>STATUS: AGUARDANDO_RESPOSTA</code>, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.</p></div>
       <div class="rule" style="--t:var(--azure)"><h3>O loremaster é imparcial</h3><p>O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.</p></div>
-      <div class="rule" style="--t:var(--or)"><h3>O Graphify é opcional</h3><p>O loremaster só lê o grafo. Quem o gera é você, no chat principal, com <code>/graphify .</code> (e <code>--obsidian</code> para um cofre do Obsidian).</p></div>
+      <div class="rule" style="--t:var(--cendree)"><h3>O grafo é do cartographer</h3><p>Só o <code>/cartographer</code>, no chat principal, gera ou atualiza o grafo, e é opcional. As outras classes só avisam quando ele fica defasado. Para mudar algo, edite o documento de origem: o grafo não se edita à mão.</p></div>
       <div class="rule" style="--t:var(--celeste)"><h3>O seer precisa do app de pé</h3><p>Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.</p></div>
       <div class="rule" style="--t:var(--gules)"><h3>O inquisitor tem escopo</h3><p>Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.</p></div>
     </div>

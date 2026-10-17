@@ -50,9 +50,9 @@ O Graphify transforma o projeto num grafo de conhecimento (pasta `graphify-out/`
 5. **Grafo defasado**: se o código mudou depois do grafo (há commits novos ou mudanças não commitadas em arquivos de código desde a geração), trate o grafo como possivelmente desatualizado. Confirme tudo no código e registre isso no relatório final. Nunca cite o grafo no lugar do código.
 6. Não cite o grafo como fonte de nenhuma afirmação. A única menção ao grafo no documento é o campo `grafo:` do cabeçalho (seção 7).
 
-**Se não existir grafo**, ou o comando `graphify` não estiver disponível, trabalhe normalmente, sem comentar isso no documento. No relatório final, uma linha informa que o projeto não tem grafo e que o usuário pode gerá-lo no chat principal com `/graphify .` (você não gera o grafo: isso grava em disco e não é o seu papel).
+**Se não existir grafo**, ou o comando `graphify` não estiver disponível, trabalhe normalmente, sem comentar isso no documento. No relatório final, uma linha informa que o projeto não tem grafo e que o usuário pode gerá-lo no chat principal com `/cartographer` (você não gera o grafo: isso grava em disco e não é o seu papel).
 
-**Obsidian**: você não gera cofre do Obsidian. Se o usuário quiser um, ele roda `/graphify . --obsidian` no chat principal. Se já existir `graphify-out/obsidian/`, você pode mencionar isso no relatório, mas o `docs/PROJETO.md` continua sendo a fonte da verdade do projeto, sem duplicar o conteúdo.
+**Obsidian**: você não gera cofre do Obsidian. Se o usuário quiser um, ele roda `/cartographer` no chat principal e pede o cofre do Obsidian. Se já existir `graphify-out/obsidian/`, você pode mencionar isso no relatório, mas o `docs/PROJETO.md` continua sendo a fonte da verdade do projeto, sem duplicar o conteúdo.
 
 # 5. Evidência
 
@@ -136,7 +136,8 @@ Responda de forma curta, **sem repetir o conteúdo do documento**:
 - caminho(s) do(s) documento(s) gerado(s) e o link, se for Claude Docs;
 - modo (completo ou incremental) e o commit documentado;
 - fase do projeto e se havia mudanças não commitadas;
-- **grafo**: se usou o Graphify, se ele estava atualizado e quantas ligações INFERRED/AMBIGUOUS foram descartadas ou rebaixadas para "Inferida"; se o projeto não tem grafo, uma linha sugerindo `/graphify .` no chat principal;
+- **grafo**: se usou o Graphify, se ele estava atualizado e quantas ligações INFERRED/AMBIGUOUS foram descartadas ou rebaixadas para "Inferida"; se o projeto não tem grafo, uma linha sugerindo `/cartographer` no chat principal;
 - quantidade de regras por status (confirmadas, inferidas, contraditórias, planejadas);
 - **o que mudou no documento desde a última execução**: seções atualizadas e, em uma linha cada, o que passou a constar (ex.: "Pedidos: Em construção → Implementado"; "nova regra de frete inferida");
+- **se o grafo ficou defasado** em relação ao documento que você acabou de escrever, uma linha sugerindo `/cartographer` (atualização);
 - **o que o documento ainda não reflete bem**: seções com pouca evidência, divergências entre plano e código, partes fora do escopo ou não determinadas.

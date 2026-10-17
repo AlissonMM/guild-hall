@@ -2,9 +2,9 @@
 
 🇬🇧 **English** · [🇧🇷 Português](README.pt-BR.md)
 
-Claude Code plugin · v0.3.0
+Claude Code plugin · v0.4.0
 
-Nine Claude agents and skills organized as RPG classes. Each class has a role in the party, and they pass information to each other through files inside your project, so nobody asks you the same thing twice.
+Ten Claude agents and skills organized as RPG classes. Each class has a role in the party, and they pass information to each other through files inside your project, so nobody asks you the same thing twice.
 
 Visual version of this page: open [`index.html`](index.html) in your browser.
 
@@ -34,6 +34,7 @@ Skills run in the main chat and can talk to you. Agents work in isolation and re
 | Blacksmith | Skill | forges the back end | Sable (black) |
 | Enchanter | Skill | shapes the front end | Murrey (mulberry) |
 | Summoner | Skill | summons the project | Tenné (orange) |
+| Cartographer | Skill | draws the project map | Cendrée (ash gray) |
 | Seer | Agent | sees the result | Celeste (sky blue) |
 | Inquisitor | Agent | inspects | Gules (red) |
 
@@ -72,6 +73,11 @@ Checks your machine, recommends Docker Compose, hybrid or native, creates what i
 - **Call:** `/summoner` · "start the project"
 - **Writes:** `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md`
 
+### Cartographer · Skill · draws the project map
+Builds and updates the project's knowledge graph with [Graphify](https://github.com/Graphify-Labs/graphify), combining the code and the documents the other classes produce. It tells you the cost first, updates only what changed and takes care of `.gitignore`. The graph stores concepts, relations and pointers to the source, not a copy of the text.
+- **Call:** `/cartographer`
+- **Writes:** `graphify-out/` (`graph.html`, `GRAPH_REPORT.md`, `graph.json`)
+
 ### Seer · Agent · sees the result
 Opens the app in the browser, walks through the flow at 375px and 1280px and compares it with the design system and the references. Reports console, network and accessibility errors.
 - **Call:** "use the seer on the login flow at http://localhost:4200"
@@ -91,6 +97,7 @@ The recommended order for a new project. Each step leaves a file that the next o
 3. **Tactician · Mode B**: creates the design system from the researched flows and publishes the reference page.
 4. **Blacksmith and Enchanter**: you and the main chat build the back end and the screens following the ADRs and the design system.
 5. **Summoner**: starts the project on your machine and generates the startup skill for next time.
+   Optional: **Cartographer** builds the map of code and documentation, useful before the loremaster on large projects.
 6. **Seer, Inquisitor and Loremaster**: after each feature, browser check, code review and documentation update.
 7. **Summoner · deployment**: when you are ready to publish, it picks the target, sets up HTTPS, secrets and backups, and deploys with your confirmation.
 8. **Loremaster**: before publishing, reviews the whole document and points out where the plan and the code diverge. It can also be called right at the start to document the plan.
@@ -120,6 +127,7 @@ The files the classes leave in your project. They are the party's shared memory.
 | `docs/adr/*.md` | Tactician, Blacksmith, Enchanter | Blacksmith, Enchanter, Seer, Inquisitor, Loremaster |
 | `docs/design-system.md` + page | Tactician | Enchanter, Seer, Inquisitor |
 | `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md` | Summoner | Seer (URLs of the running app), Loremaster |
+| `graphify-out/` (graph) | Cartographer | Loremaster (as a map) and any class, via `graphify query` |
 
 ## Guild rules
 
@@ -127,7 +135,7 @@ Agreements the main chat follows when calling the agents.
 
 - **The ranger pauses.** When it replies `STATUS: AGUARDANDO_RESPOSTA`, its questions go to you exactly as they came, and the same agent is resumed with your answers.
 - **The loremaster is impartial.** The briefing carries only scope, format and output location. No summary or opinion about the system. It can be called at any stage of the project.
-- **Graphify is optional and stays with you.** The loremaster only reads the graph. To generate it, run `/graphify .` in the main chat (and `/graphify . --obsidian` if you want an Obsidian vault).
+- **The graph belongs to the cartographer, and it is optional.** Only `/cartographer`, in the main chat, builds or updates the graph. The loremaster only reads it. Tactician, ranger, loremaster and summoner warn you when it is stale, but never build it on their own. To change something, edit the source document and run the cartographer again: the graph is not edited by hand.
 - **The seer needs the app running.** It receives the URL, the flow and the test data. If the app is not running, call the project's startup skill or the summoner first.
 - **The inquisitor has a scope.** Uncommitted changes, a branch or folders. Critical and High findings reach you before moving on.
 

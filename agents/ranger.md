@@ -93,6 +93,7 @@ Referências:
 ...
 
 Pendências: <o que não foi possível fazer, ou "nenhuma">
+Grafo: <se o projeto tem graphify-out/, uma linha: "o grafo não inclui esta pesquisa; rode /cartographer para atualizar", ou "sem grafo">
 ```
 
 # 3. Regras gerais

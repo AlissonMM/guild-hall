@@ -94,3 +94,4 @@ Registre a escolha como ADR.
 
 ### D5. Documentar
 Crie ou atualize `docs/deploy.md`: destino, como fazer um novo deploy, onde ficam os segredos (só os nomes), como ver logs, como fazer rollback e como restaurar um backup.
+Se o projeto tiver `graphify-out/` e os documentos mudaram, termine com uma linha: "o grafo ficou defasado; quer rodar `/cartographer`?" (só avise, não gere o grafo sem a confirmação do usuário).

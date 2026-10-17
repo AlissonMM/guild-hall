@@ -83,7 +83,8 @@ Mantenha `docs/adr/README.md` com um índice (número, título, status, link). P
 ## A6. Encerramento
 1. Resumo curto das decisões, com links dos ADRs.
 2. Pergunte se o usuário quer gerar o **esqueleto do projeto** agora (seguindo a skill `blacksmith` no back-end e `enchanter` no front-end).
-3. Se houver front-end e ainda não existir `docs/design-system.md`, ofereça o **Modo B**, de preferência depois da pesquisa de fluxos do `ranger`.
+3. Se o projeto tiver `graphify-out/` e os documentos mudaram, termine com uma linha: "o grafo ficou defasado; quer rodar `/cartographer`?" (só avise, não gere o grafo sem a confirmação do usuário).
+4. Se houver front-end e ainda não existir `docs/design-system.md`, ofereça o **Modo B**, de preferência depois da pesquisa de fluxos do `ranger`.
 
 ---
 
@@ -155,3 +156,4 @@ Regras:
 3. Se a ferramenta `Artifact` não estiver disponível, gere a página em `docs/design-system.html` e informe isso ao usuário.
 4. Registre um ADR: `NNNN-design-system.md`, com o link da página e o caminho do `.md`.
 5. Informe ao usuário: o caminho do `.md`, o link da página e que a skill `enchanter` passará a usar esses tokens.
+6. Se o projeto tiver `graphify-out/` e os documentos mudaram, termine com uma linha: "o grafo ficou defasado; quer rodar `/cartographer`?" (só avise, não gere o grafo sem a confirmação do usuário).

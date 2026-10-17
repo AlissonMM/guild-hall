@@ -2,9 +2,9 @@
 
 [🇬🇧 English](README.md) · 🇧🇷 **Português**
 
-Plugin do Claude Code · v0.3.0
+Plugin do Claude Code · v0.4.0
 
-Nove agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.
+Dez agentes e skills do Claude organizados como classes de RPG. Cada classe tem um papel no grupo, e elas trocam informações por arquivos dentro do seu projeto, para ninguém perguntar a mesma coisa duas vezes.
 
 Versão visual desta página: abra [`index.html`](index.html) no navegador (ou a página publicada no Claude: https://claude.ai/artifact/KUe63e4HmUWxtKqdUs5bix).
 
@@ -32,6 +32,7 @@ Skills rodam no chat principal e podem conversar com você. Agentes trabalham is
 | Blacksmith | Skill | forja o back-end | Sable (negro) |
 | Enchanter | Skill | dá forma ao front-end | Murrey (amora) |
 | Summoner | Skill | invoca o projeto | Tenné (laranja) |
+| Cartographer | Skill | desenha o mapa do projeto | Cendrée (cinza-cinza) |
 | Seer | Agente | enxerga o resultado | Celeste (azul-céu) |
 | Inquisitor | Agente | fiscaliza | Gules (vermelho) |
 
@@ -70,6 +71,11 @@ Diagnostica a máquina, recomenda Docker Compose, híbrido ou nativo, cria o que
 - **Chamar:** `/summoner` · "suba o projeto"
 - **Escreve:** `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md`
 
+### Cartographer · Skill · desenha o mapa do projeto
+Gera e atualiza o grafo de conhecimento do projeto com o [Graphify](https://github.com/Graphify-Labs/graphify), juntando o código e os documentos das outras classes. Avisa o custo antes, atualiza só o que mudou e cuida do `.gitignore`. O grafo guarda conceitos, relações e ponteiros para a origem, não uma cópia do texto.
+- **Chamar:** `/cartographer`
+- **Escreve:** `graphify-out/` (`graph.html`, `GRAPH_REPORT.md`, `graph.json`)
+
 ### Seer · Agente · enxerga o resultado
 Abre o app no navegador, percorre o fluxo em 375px e 1280px e compara com o design system e as referências. Aponta erros de console, rede e acessibilidade.
 - **Chamar:** "use o seer no fluxo de login em http://localhost:4200"
@@ -89,6 +95,7 @@ A ordem recomendada para um projeto novo. Cada passo deixa um arquivo que o pró
 3. **Tactician · Modo B**: cria o design system a partir dos fluxos pesquisados e publica a página de referência.
 4. **Blacksmith e Enchanter**: você e o chat principal constroem o back-end e as telas seguindo os ADRs e o design system.
 5. **Summoner**: sobe o projeto na sua máquina e gera a skill de startup para as próximas vezes.
+   Opcional: **Cartographer** gera o mapa do código e da documentação, útil antes do loremaster em projetos grandes.
 6. **Seer, Inquisitor e Loremaster**: a cada funcionalidade, verificação no navegador, revisão do código e atualização da documentação.
 7. **Summoner · deploy**: quando for publicar, escolhe o destino, prepara HTTPS, segredos e backups, e faz o deploy com a sua confirmação.
 8. **Loremaster**: antes de publicar, revisa o documento inteiro e aponta as divergências entre plano e código. Ele também pode ser chamado logo no início, para documentar o plano.
@@ -118,6 +125,7 @@ Os arquivos que as classes deixam no seu projeto. São a memória compartilhada 
 | `docs/adr/*.md` | Tactician, Blacksmith, Enchanter | Blacksmith, Enchanter, Seer, Inquisitor, Loremaster |
 | `docs/design-system.md` + página | Tactician | Enchanter, Seer, Inquisitor |
 | `docker-compose.yml`, `.claude/skills/startup-*`, `docs/deploy.md` | Summoner | Seer (URLs do app rodando), Loremaster |
+| `graphify-out/` (grafo) | Cartographer | Loremaster (como mapa) e qualquer classe, via `graphify query` |
 
 ## Regras da guilda
 
@@ -125,7 +133,7 @@ Combinados que o chat principal segue ao chamar os agentes.
 
 - **O ranger pausa.** Quando ele responder `STATUS: AGUARDANDO_RESPOSTA`, as perguntas vão para você exatamente como vieram, e o mesmo agente é retomado com as suas respostas.
 - **O loremaster é imparcial.** O briefing leva só escopo, formato e local de saída. Nenhum resumo ou opinião sobre o sistema. Pode ser chamado em qualquer fase do projeto.
-- **O Graphify é opcional e fica com você.** O loremaster só lê o grafo. Para gerá-lo, rode `/graphify .` no chat principal (e `/graphify . --obsidian` se quiser um cofre do Obsidian).
+- **O grafo é do cartographer, e é opcional.** Só o `/cartographer`, no chat principal, gera ou atualiza o grafo. O loremaster só o lê. Tactician, ranger, loremaster e summoner avisam quando ele ficou defasado, mas não o geram sozinhos. Para editar algo, mude o documento de origem e rode o cartographer de novo: o grafo não se edita à mão.
 - **O seer precisa do app de pé.** Ele recebe a URL, o fluxo e os dados de teste. Se o app não estiver rodando, chame antes a skill de startup ou o summoner.
 - **O inquisitor tem escopo.** Mudanças não commitadas, um branch ou pastas. Achados Críticos e Altos chegam a você antes de seguir.
 

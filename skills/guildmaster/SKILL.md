@@ -7,7 +7,7 @@ description: Guia de uso do plugin guild-hall. Explica quais agentes e skills ex
 
 Este plugin reúne agentes e skills **universais**: nenhum deles traz contexto de um projeto específico. Todos descobrem o contexto lendo o projeto atual e trocam informações por **arquivos** dentro dele.
 
-Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **guildmaster** organiza, o **loremaster** conhece o mundo, o **ranger** explora, o **tactician** planeja, o **blacksmith** forja o back-end, o **enchanter** dá forma ao front-end, o **summoner** invoca o projeto para o campo (local ou produção), o **seer** enxerga o resultado e o **inquisitor** fiscaliza.
+Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **guildmaster** organiza, o **loremaster** conhece o mundo, o **ranger** explora, o **tactician** planeja, o **blacksmith** forja o back-end, o **enchanter** dá forma ao front-end, o **summoner** invoca o projeto para o campo (local ou produção), o **cartographer** desenha o mapa do projeto, o **seer** enxerga o resultado e o **inquisitor** fiscaliza.
 
 ## 1. Peças disponíveis
 
@@ -20,6 +20,7 @@ Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **
 | `blacksmith` | Skill | Regras ao programar back-end: segurança, legibilidade, desempenho, testes, seguindo os ADRs. | Carrega sozinha ao codar back-end, ou `/blacksmith` |
 | `enchanter` | Skill | Regras ao programar front-end: design system, acessibilidade, responsividade, estados de tela, desempenho, segurança, testes. | Carrega sozinha ao codar front-end, ou `/enchanter` |
 | `summoner` | Skill | Faz o projeto rodar: diagnostica a máquina, recomenda Docker Compose, híbrido ou nativo, cria Dockerfiles/compose/scripts, sobe e verifica os serviços e gera a skill de startup do projeto (`.claude/skills/startup-<projeto>/`). Também planeja e prepara o deploy. | `/summoner` ("suba o projeto", "faça o deploy") |
+| `cartographer` | Skill | Gera e atualiza o grafo de conhecimento do projeto com o Graphify (`graphify-out/`), juntando o código e os documentos das classes (`PROJETO.md`, ADRs, pesquisas, design system, deploy). Avisa o custo antes, atualiza só o que mudou e cuida do `.gitignore`. O grafo é um mapa para navegar, nunca evidência. | `/cartographer` |
 | `seer` | Agente | Abre o app no navegador, percorre um fluxo em celular e desktop e compara com o design system e as referências. Não altera código. | "use o seer no fluxo de <x> em http://localhost:<porta>" |
 | `inquisitor` | Agente | Revisa o código pronto de back-end e front-end (segurança, acessibilidade, desempenho, ADRs, design system, testes). Somente leitura. | "use o inquisitor nas mudanças" |
 
@@ -31,7 +32,8 @@ Cada peça tem o nome de uma classe de RPG que lembra o seu papel no grupo: o **
 | `docs/pesquisa-fluxos/<tema>.md` | ranger | tactician (design system), enchanter, seer, blacksmith (endpoints que as telas precisam) |
 | `docs/adr/*.md` | tactician (e blacksmith/enchanter, ao registrar novas decisões) | blacksmith, enchanter, seer, inquisitor, loremaster |
 | `docs/design-system.md` (+ página Artifact) | tactician (Modo B) | enchanter, seer, inquisitor |
-| `docker-compose.yml`, `.env.example`, `.claude/skills/startup-<projeto>/`, `docs/deploy.md` | summoner | seer (URLs do app rodando), loremaster |
+| `docker-compose.yml`, `.claude/skills/startup-<projeto>/`, `docs/deploy.md` | summoner | seer (URLs do app rodando), loremaster |
+| `graphify-out/` (grafo, `graph.html`, `GRAPH_REPORT.md`) | cartographer | loremaster (como mapa) e qualquer classe, via `graphify query` |
 
 Regra: antes de começar qualquer tarefa com estas peças, verifique se esses arquivos existem e leia os que forem relevantes. Eles evitam perguntas repetidas ao usuário.
 
@@ -46,7 +48,7 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 5. `/summoner`: sobe o projeto localmente (e gera a skill de startup) para testar.
 6. Ao fim de cada funcionalidade: **seer** (verificação no navegador), **inquisitor** (revisão do código) e **loremaster** (atualiza a documentação).
 7. Quando for publicar: `/summoner` (deploy).
-8. **loremaster** antes de publicar, para revisar o documento inteiro e as divergências entre plano e código.
+8. **loremaster** antes de publicar, para revisar o documento inteiro e as divergências entre plano e código (num projeto grande, rode `/cartographer` antes).
 
 ### Projeto existente que você ainda não conhece
 1. **loremaster**: gera `docs/PROJETO.md`.
@@ -65,11 +67,11 @@ Regra: antes de começar qualquer tarefa com estas peças, verifique se esses ar
 ## 4. Regras para o agente principal
 
 - **ranger faz perguntas por pausa e retomada.** Quando ele retornar `STATUS: AGUARDANDO_RESPOSTA`, mostre as perguntas ao usuário exatamente como vieram (com `AskUserQuestion`), sem responder por ele, e retome **o mesmo agente** com `SendMessage` enviando as respostas literais. Repita até `STATUS: CONCLUIDO`.
-- **Graphify é opcional e fica com você.** O loremaster só **lê** o grafo (`graphify query/path/explain`). Quem gera ou atualiza o grafo é o chat principal, com `/graphify .` (ou `/graphify . --update`), e o cofre do Obsidian só com `/graphify . --obsidian`. Gere o grafo antes de chamar o loremaster quando o projeto for grande.
+- **O grafo é do cartographer, e é opcional.** Só o `/cartographer` (no chat principal) gera ou atualiza o `graphify-out/`: agentes isolados não conseguem disparar os subagentes que o Graphify usa para ler documentos. O loremaster só **lê** o grafo. Tactician, ranger, loremaster e summoner terminam avisando quando o grafo ficou defasado, e **só avisam**: gerar depende da confirmação do usuário.
 - **loremaster é imparcial e pode ser chamado a qualquer momento.** No briefing, envie somente escopo, formato e local de saída. Não inclua resumos ou opiniões sobre o sistema. Repasse ao usuário o que mudou no documento e o que ele ainda não reflete.
 - **seer precisa do app rodando.** No briefing, envie a URL, o fluxo a verificar e os dados de teste. Ele não sobe o projeto sozinho: antes, use a skill de startup do projeto ou o `/summoner`.
 - **inquisitor** recebe o escopo da revisão (mudanças não commitadas, um branch ou pastas). Repasse ao usuário os achados Críticos e Altos antes de seguir.
-- Skills (`tactician`, `blacksmith`, `enchanter`, `summoner`) rodam no chat principal e podem perguntar diretamente ao usuário.
+- Skills (`tactician`, `blacksmith`, `enchanter`, `summoner`, `cartographer`) rodam no chat principal e podem perguntar diretamente ao usuário.
 
 ## 5. Mantendo este guia
 
